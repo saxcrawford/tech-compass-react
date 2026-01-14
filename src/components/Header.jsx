@@ -1,6 +1,6 @@
 import {CompassIcon, SunIcon, MoonIcon} from "lucide-react";
 
-function Header() {
+function Header({darkMode, setDarkMode}) {
     return (
         <header>
             <CompassIcon size={32}/><span>TechCompass</span>
@@ -8,9 +8,8 @@ function Header() {
                 <li><a href="#categories">Chart Your Course</a></li>
                 <li><a href="#about">About</a></li>
                 <li>
-                    <button className="theme-toggle" aria-label="Toggle dark mode">
-                        <SunIcon />
-                        <MoonIcon />
+                    <button onClick={() => {setDarkMode(!darkMode)}} aria-label="Toggle dark mode">
+                        {darkMode ? <SunIcon /> : <MoonIcon />}
                     </button>
                 </li>
             </ul>
