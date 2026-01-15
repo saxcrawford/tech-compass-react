@@ -2,7 +2,9 @@ import './App.css'
 import {useState, useEffect} from "react";
 import Header from "./components/Header.jsx";
 import CategoryCard from "./components/CategoryCard.jsx";
-import Hero from "./components/Hero.jsx"
+import Hero from "./components/Hero.jsx";
+import About from "./components/About.jsx";
+import Footer from "./components/Footer.jsx";
 import {Cpu, Globe, Monitor, Shield, Smartphone, Wrench} from "lucide-react";
 
 function App() {
@@ -49,6 +51,10 @@ function App() {
                     </div>
                     {filteredCategories.length === 0 && <p>No categories found</p>}
                 </section>
+                <section className='about'>
+                    <About />
+                </section>
+                <Footer />
             </div>
         </>
     )
