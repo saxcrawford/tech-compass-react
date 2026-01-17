@@ -3,6 +3,7 @@ import {useState, useEffect} from "react";
 import Header from "./components/Header.jsx";
 import CategoryCard from "./components/CategoryCard.jsx";
 import Hero from "./components/Hero.jsx";
+import Contact from "./components/Contact.jsx";
 import About from "./components/About.jsx";
 import Footer from "./components/Footer.jsx";
 import {Cpu, Globe, Monitor, Shield, Smartphone, Wrench} from "lucide-react";
@@ -35,7 +36,7 @@ function App() {
                 <section className='hero'>
                     <Hero searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
                 </section>
-                <section className='categories'>
+                <section className='categories' id='categories'>
                     <h2 className='section-title'>Chart Your Course</h2>
                     <p className='section-subtitle'>Choose a heading to begin your voyage</p>
                     <div className='category-grid'>
@@ -51,7 +52,10 @@ function App() {
                     </div>
                     {filteredCategories.length === 0 && <p>No categories found</p>}
                 </section>
-                <section className='about'>
+                <section className="contact">
+                    <Contact />
+                </section>
+                <section className='about' id='about'>
                     <About />
                 </section>
                 <Footer />
