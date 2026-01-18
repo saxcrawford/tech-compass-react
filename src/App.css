@@ -617,6 +617,18 @@ input {
     box-shadow: 0 0 0 3px rgba(91, 163, 225, 0.2);
 }
 
+.app.dark-mode .form-group.error input,
+.app.dark-mode .form-group.error textarea {
+    border-color: #ef4444;
+}
+
+.app.dark-mode .error-message.visible {
+    display: block;
+    color: #ef4444;
+    font-size: 0.875rem;
+    margin-top: var(--spacing-xs);
+}
+
 .form-group textarea {
     resize: vertical;
     min-height: 100px;
@@ -629,13 +641,13 @@ input {
 
 .error-message {
     display: none;
+}
+
+.error-message.visible {
+    display: block;
     color: #ef4444;
     font-size: 0.875rem;
     margin-top: var(--spacing-xs);
-}
-
-.form-group.error .error-message {
-    display: block;
 }
 
 .submit-btn {
