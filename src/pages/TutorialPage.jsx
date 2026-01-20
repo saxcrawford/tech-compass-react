@@ -1,29 +1,40 @@
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import tutorialsData from "../data/tutorialsData.js";
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
+import {useTheme} from "../components/ThemeContext.jsx";
 
 const TutorialPage = () => {
     const {tutorialId} = useParams();
+    const {darkMode} = useTheme();
     const tutorial = tutorialsData.find(item => item.id === Number(tutorialId));
 
     return (
-        <div className="app">
-            <Header />
-            <main>
+        <div className={`app ${darkMode ? 'dark-mode' : ''}`}>
+            <Header/>
+            <main className="tutorial-page">
                 {!tutorial ? (
                     <p>Tutorial not found</p>
                 ) : (
-                    <>
-                        <h1>{tutorial.title}</h1>
-                        <h3>{tutorial.description}</h3>
-                        <p>{tutorial.category}</p>
-                        <p>{tutorial.difficultyLevel}</p>
-                        <p>{tutorial.content}</p>
-                    </>
+                    <article className="tutorial-content">
+                      <span className={`difficulty-badge ${tutorial.difficultyLevel.toLowerCase().replace(/ /g, '-')}`}>
+                          {tutorial.difficultyLevel}
+                      </span>
+                        <h1 className="tutorial-title">{tutorial.title}</h1>
+                        <p className="tutorial-description">{tutorial.description}</p>
+                        <Link
+                            to={`/category/${tutorial.category.toLowerCase().replace(/ /g, '-')}`}
+                            className="tutorial-meta-link"
+                        >
+                            Category: {tutorial.category}
+                        </Link>
+                        <div className="tutorial-body">
+                            <p>{tutorial.content}</p>
+                        </div>
+                    </article>
                 )}
             </main>
-            <Footer />
+            <Footer/>
         </div>
     )
 }

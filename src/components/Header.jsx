@@ -1,16 +1,20 @@
 import {CompassIcon, SunIcon, MoonIcon} from "lucide-react";
+import {Link} from "react-router-dom";
+import {useTheme} from "./ThemeContext.jsx";
+import { HashLink } from 'react-router-hash-link';
 
-function Header({darkMode, setDarkMode}) {
+function Header() {
+    const {darkMode, setDarkMode} = useTheme()
     return (
         <header className="header">
             <nav className="nav">
-                <a href="#" className="logo">
+                <Link to={'/'} className="logo">
                     <CompassIcon className="logo-icon" size={32}/>
                     <span>TechCompass</span>
-                </a>
+                </Link>
                 <ul className="nav-links">
-                    <li><a href="#categories">Chart Your Course</a></li>
-                    <li><a href="#about">About</a></li>
+                    <li><HashLink smooth to='/#categories'>Chart Your Course</HashLink></li>
+                    <li><HashLink smooth to='/#about'>About</HashLink></li>
                     <li>
                         <button className="theme-toggle" onClick={() => {setDarkMode(!darkMode)}} aria-label="Toggle dark mode">
                             {darkMode ? <SunIcon /> : <MoonIcon />}

@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {Cpu, Globe, Monitor, Shield, Smartphone, Wrench} from "lucide-react";
 import Header from "../components/Header.jsx";
 import Hero from "../components/Hero.jsx";
@@ -7,15 +7,11 @@ import Contact from "../components/Contact.jsx";
 import About from "../components/About.jsx";
 import Footer from "../components/Footer.jsx";
 import BackToTop from "../components/BackToTop.jsx";
+import {useTheme} from "../components/ThemeContext.jsx";
 
 const HomePage = () => {
     const [searchTerm, setSearchTerm] = useState('');
-    const [darkMode, setDarkMode] = useState(() => {
-        return localStorage.getItem('dark-mode') === 'dark'
-    });
-    useEffect(() => {
-        localStorage.setItem('dark-mode', darkMode ? 'dark' : 'light');
-    }, [darkMode]);
+    const {darkMode} = useTheme()
     const categories = [
         {
             id: 1,
@@ -68,7 +64,7 @@ const HomePage = () => {
     return (
         <>
             <div className={`app ${darkMode ? 'dark-mode' : ''}`}>
-                <Header darkMode={darkMode} setDarkMode={setDarkMode}/>
+                <Header/>
                 <section className='hero'>
                     <Hero searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
                 </section>

@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage.jsx";
 import CategoryPage from "./pages/CategoryPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage.jsx";
 import TutorialPage from "./pages/TutorialPage.jsx";
+import Header from "./components/Header.jsx";
 
 function App() {
     return (
@@ -12,6 +13,8 @@ function App() {
             <Route path='/category/:categoryId' element={<CategoryPage/>}/>
             <Route path='/tutorial/:tutorialId' element={<TutorialPage/>}/>
             <Route path='*' element={<NotFoundPage/>}/>
+            <Route path='/#categories' element={<HomePage/>}/>
+            <Route path='/#about' element={<HomePage/>}/>
         </Routes>
     )
 }
