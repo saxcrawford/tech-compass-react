@@ -974,6 +974,34 @@ input {
     color: var(--color-text-dark);
 }
 
+/* Tutorial Sections */
+.tutorial-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.tutorial-section:last-child {
+    margin-bottom: 0;
+}
+
+.tutorial-section h2 {
+    font-family: var(--font-heading), serif;
+    font-size: var(--font-size-xl);
+    color: var(--color-navy);
+    margin-bottom: var(--spacing-sm);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 2px solid var(--color-tomato);
+    display: inline-block;
+}
+
+.tutorial-section p {
+    margin: 0;
+}
+
+.app.dark-mode .tutorial-section h2 {
+    color: #ffffff;
+    border-bottom-color: var(--color-blue);
+}
+
 .tutorial-meta-link {
     display: inline-block;
     font-size: 0.875rem;

@@ -29,7 +29,16 @@ const TutorialPage = () => {
                             Category: {tutorial.category}
                         </Link>
                         <div className="tutorial-body">
-                            <p>{tutorial.content}</p>
+                            {tutorial.sections ? (
+                                tutorial.sections.map((section, index) => (
+                                    <section key={index} className="tutorial-section">
+                                        <h2>{section.heading}</h2>
+                                        <p>{section.content}</p>
+                                    </section>
+                                ))
+                            ) : (
+                                <p>{tutorial.content}</p>
+                            )}
                         </div>
                     </article>
                 )}

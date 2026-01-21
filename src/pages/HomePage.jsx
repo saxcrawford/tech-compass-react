@@ -7,7 +7,9 @@ import Contact from "../components/Contact.jsx";
 import About from "../components/About.jsx";
 import Footer from "../components/Footer.jsx";
 import BackToTop from "../components/BackToTop.jsx";
+import tutorialsData from "../data/tutorialsData.js";
 import {useTheme} from "../components/ThemeContext.jsx";
+import TutorialCard from "../components/TutorialCard.jsx";
 
 const HomePage = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -61,6 +63,10 @@ const HomePage = () => {
         category.description.toLowerCase().includes(searchTerm.toLowerCase())
     )
 
+    const filteredTutorials = tutorialsData.filter(data =>
+        data.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        data.description.toLowerCase().includes(searchTerm.toLowerCase()))
+
     return (
         <>
             <div className={`app ${darkMode ? 'dark-mode' : ''}`}>
@@ -72,17 +78,28 @@ const HomePage = () => {
                     <h2 className='section-title'>Chart Your Course</h2>
                     <p className='section-subtitle'>Choose a heading to begin your voyage</p>
                     <div className='category-grid'>
-                        {filteredCategories.map(category => (
-                            <CategoryCard
-                                key={category.id}
-                                title={category.title}
-                                description={category.description}
-                                icon={category.icon}
-                                difficulty={category.difficulty}
-                            />
-                        ))}
+                        {searchTerm.length === 0 ? (
+                            filteredCategories.map(category => (
+                                <CategoryCard
+                                    key={category.id}
+                                    title={category.title}
+                                    description={category.description}
+                                    icon={category.icon}
+                                    difficulty={category.difficulty}
+                                />
+                            ))
+                        ) : (
+                            filteredTutorials.map(tutorial => (
+                                <TutorialCard
+                                    key={tutorial.id}
+                                    id={tutorial.id}
+                                    title={tutorial.title}
+                                    description={tutorial.description}
+                                />
+                            ))
+                        )}
                     </div>
-                    {filteredCategories.length === 0 && <p>No categories found</p>}
+                    {filteredTutorials.length === 0 && filteredCategories.length === 0 && <p>No results</p>}
                 </section>
                 <section className="contact">
                     <Contact/>
