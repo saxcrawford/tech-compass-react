@@ -1,11 +1,9 @@
 import {useState} from "react";
 import {Cpu, Globe, Monitor, Shield, Smartphone, Wrench} from "lucide-react";
-import Header from "../components/Header.jsx";
 import Hero from "../components/Hero.jsx";
 import CategoryCard from "../components/CategoryCard.jsx";
 import Contact from "../components/Contact.jsx";
 import About from "../components/About.jsx";
-import Footer from "../components/Footer.jsx";
 import BackToTop from "../components/BackToTop.jsx";
 import tutorialsData from "../data/tutorialsData.js";
 import {useTheme} from "../components/ThemeContext.jsx";
@@ -70,7 +68,6 @@ const HomePage = () => {
     return (
         <>
             <div className={`app ${darkMode ? 'dark-mode' : ''}`}>
-                <Header/>
                 <section className='hero'>
                     <Hero searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
                 </section>
@@ -107,7 +104,6 @@ const HomePage = () => {
                 <section className='about' id='about'>
                     <About/>
                 </section>
-                <Footer/>
                 <BackToTop/>
             </div>
         </>
