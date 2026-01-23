@@ -9,7 +9,7 @@ const Header = () => {
 	const [menuVisible, setMenuVisible] = useState(false);
 
 	const menuButtonClick = () => {
-		if (window.innerWidth < 780) {
+		if (window.innerWidth < 768) {
 			setMenuVisible(!menuVisible);
 		}
 	};
@@ -25,9 +25,9 @@ const Header = () => {
 					<li><HashLink smooth to="/#categories">Chart Your Course</HashLink></li>
 					<li><HashLink smooth to="/#about">About</HashLink></li>
 					<li>
-						<button className="theme-toggle" onClick={() => {
-							setDarkMode(!darkMode);
-						}} aria-label="Toggle dark mode">
+						<button className="theme-toggle" onClick={() =>
+							setDarkMode(!darkMode)
+						} aria-label="Toggle dark mode">
 							{darkMode ? <SunIcon/> : <MoonIcon/>}
 						</button>
 					</li>
@@ -37,12 +37,18 @@ const Header = () => {
 				}} aria-label="Toggle dark mode">
 					{darkMode ? <SunIcon/> : <MoonIcon/>}
 				</button>
-				<Menu className="menu-logo" onClick={menuButtonClick}/>
+				<button className="menu-toggle" onClick={menuButtonClick} aria-label="Toggle menu">
+					<Menu/>
+				</button>
 			</nav>
 			<div className={`nav-links-mobile ${menuVisible ? "visible" : ""}`}>
 				<ul className={`nav-links ${menuVisible ? "visible" : ""}`}>
-					<li><HashLink smooth to="/#categories">Chart Your Course</HashLink></li>
-					<li><HashLink smooth to="/#about">About</HashLink></li>
+					<li><HashLink smooth to="/#categories" onClick={() =>
+						setMenuVisible(false)
+					}>Chart Your Course</HashLink></li>
+					<li><HashLink smooth to="/#about" onClick={() =>
+						setMenuVisible(false)
+					}>About</HashLink></li>
 				</ul>
 			</div>
 		</header>

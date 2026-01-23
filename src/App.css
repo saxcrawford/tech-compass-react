@@ -77,14 +77,15 @@
 .app.dark-mode .logo,
 .app.dark-mode .nav-links a,
 .app.dark-mode .theme-toggle,
-.app.dark-mode .menu-logo {
+.app.dark-mode .menu-toggle {
 	color: #ffffff;
 }
 
 .app.dark-mode .hero-subtitle,
 .app.dark-mode .section-subtitle,
 .app.dark-mode .category-card p,
-.app.dark-mode .search-hint {
+.app.dark-mode .search-hint,
+.app.dark-mode .back-link {
 	color: #94a3b8;
 }
 
@@ -278,7 +279,7 @@ input {
 	color: var(--color-tomato);
 }
 
-.menu-logo {
+.menu-toggle {
 	display: none;
 }
 
@@ -911,6 +912,14 @@ input {
 	margin-bottom: var(--spacing-lg);
 }
 
+.back-link {
+	display: flex;
+	gap: 10px;
+	color: var(--color-text-dark);
+	font-size: var(--font-body);
+	align-items: center;
+}
+
 .tutorial-list {
 	display: flex;
 	flex-direction: column;
@@ -1035,8 +1044,11 @@ input {
 
 /* Tablet */
 @media (max-width: 768px) {
-	.menu-logo {
-		display: block;
+	.menu-toggle {
+		display: flex;
+		background: none;
+		border: none;
+		cursor: pointer;
 		color: var(--color-navy);
 	}
 

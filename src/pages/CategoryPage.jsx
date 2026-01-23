@@ -1,5 +1,7 @@
 import {Link, useParams} from "react-router-dom";
 import tutorialsData from "../data/tutorialsData.js";
+import {ArrowLeft} from "lucide-react";
+import {HashLink} from "react-router-hash-link";
 
 const CategoryPage = () => {
 	const {categoryId} = useParams();
@@ -11,6 +13,9 @@ const CategoryPage = () => {
 		<main className="category-page">
 			{filteredTutorials.length > 0 ? (
 				<>
+					<HashLink to={"/#categories"} className="back-link">
+						<ArrowLeft size={20}/> Back to Categories
+					</HashLink>
 					<h1 className="category-title">{filteredTutorials[0].category}</h1>
 					<div className="tutorial-list">
 						{filteredTutorials.map(tutorialItem => (
