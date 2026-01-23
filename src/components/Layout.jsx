@@ -5,17 +5,17 @@ import Footer from "./Footer.jsx";
 
 
 const Layout = () => {
-    const {darkMode} = useTheme()
+	const {darkMode} = useTheme();
 
-    return (
-        <div className={`app ${darkMode ? 'dark-mode' : ''}`}>
-            <Header />
-            <main>
-                <Outlet />
-            </main>
-            <Footer />
-        </div>
-    )
-}
+	return (
+		<div className={`app ${darkMode ? "dark-mode" : ""}`}>
+			<Header/>
+			<main>
+				<Outlet/>
+			</main>
+			<Footer/>
+		</div>
+	);
+};
 
 export default Layout;
